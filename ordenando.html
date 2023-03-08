@@ -12,36 +12,52 @@
       <h1>Ordenando Valores</h1>
       <h2>Valor</h2>
       <input type="number" id="valor" />
-      <button onclick="add">Adicionar</button>
+      <button onclick="add()">Adicionar</button>
 
-      <div id="selecionar">
-        <select id="sort">
-          <option value="">Swap</option>
-          <option value="">Suffle</option>
-          <option value="">Selection Sort</option>
-          <option value="">Quick Sort</option>
-          <option value="">Bubble Sort</option>
-        </select>
-        <button onclick="ordenar">Ordenar</button>
-        <button onclick="misturar">Misturar</button>
-      </div>
+      <select id="sort">
+        <option value="">Swap</option>
+        <option value="">Suffle</option>
+        <option value="">Selection Sort</option>
+        <option value="">Quick Sort</option>
+        <option value="">Bubble Sort</option>
+      </select>
+      <button onclick="ordenar()">Ordenar</button>
+      <button onclick="misturar()">Misturar</button>
 
       <ul id="valores"></ul>
     </div>
 
-    <script src="ordenando.js">
-
+    <script>
       function ordenar() {
+        let lista = document.getElementById("valores");
+        let selecao = document.getElementById("sort");
+        let vetor = [];
 
-      }
-      function misturar() {
+        let children = lista.childNodes;
+        let fixed = Math.round(children);
+        vetor.push(fixed);
 
+        selecao.addEventListener("change", () => {
+          /** @type {HTMLSelectElement} */
+          const escolha = selecao.selectedIndex;
+
+          if (escolha[0]) {
+            swap(vetor[0], vetor[1]);
+          }
+        });
       }
+
+      function misturar() {}
 
       function add() {
+        let id = document.querySelector("#valor");
+        let lista = document.getElementById("valores");
+        let node = document.createElement("li");
+        let texto = document.createTextNode(id);
 
+        lista.appendChild(node);
+        return console.log(lista);
       }
-      let id = prompt("Digite um número")
     </script>
   </body>
 </html>

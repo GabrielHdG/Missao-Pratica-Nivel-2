@@ -1,5 +1,3 @@
-let lista = [a, b];
-
 const swap = (lista, a, b) => {
   [a, b] = [b, a];
   return a, b;
