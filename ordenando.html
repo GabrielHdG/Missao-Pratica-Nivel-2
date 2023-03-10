@@ -14,12 +14,12 @@
       <input type="number" id="valor" />
       <button onclick="add()">Adicionar</button>
 
-      <select id="sort">
-        <option value="">Swap</option>
-        <option value="">Suffle</option>
-        <option value="">Selection Sort</option>
-        <option value="">Quick Sort</option>
-        <option value="">Bubble Sort</option>
+      <select id="sort" onchange="ordenar(this.value)">
+        <option value="Swap">Swap</option>
+        <option value="Suffle">Suffle</option>
+        <option value="Selection">Selection Sort</option>
+        <option value="Quick">Quick Sort</option>
+        <option value="Bubble">Bubble Sort</option>
       </select>
       <button onclick="ordenar()">Ordenar</button>
       <button onclick="misturar()">Misturar</button>
@@ -28,35 +28,46 @@
     </div>
 
     <script>
-      function ordenar() {
+      function ordenar(elemento) {
         let lista = document.getElementById("valores");
         let selecao = document.getElementById("sort");
         let vetor = [];
+        console.log(vetor);
 
-        let children = lista.childNodes;
-        let fixed = Math.round(children);
-        vetor.push(fixed);
+        for (const children of lista.children) {
+          console.log(children);
+          Math.round(children);
+          vetor.push(children);
+        }
 
-        selecao.addEventListener("change", () => {
-          /** @type {HTMLSelectElement} */
-          const escolha = selecao.selectedIndex;
-
-          if (escolha[0]) {
-            swap(vetor[0], vetor[1]);
-          }
-        });
+        if (elemento === "Swap") {
+          console.log("Swap");
+        } else if (elemento === "Suffle") {
+          console.log("b");
+        } else if (elemento === "Selection") {
+          console.log("c");
+        } else if (elemento === "Quick") {
+          console.log("d");
+        } else {
+          console.log("Bubble");
+        }
       }
 
       function misturar() {}
 
       function add() {
-        let id = document.querySelector("#valor");
+        //pega o valor do input
+        let id = parseInt(document.getElementById("valor").value);
+        //pega a lista que será adicionada
         let lista = document.getElementById("valores");
+        //cria um elemento li para o valor do input
         let node = document.createElement("li");
+        //cria um node com o valor do input
         let texto = document.createTextNode(id);
-
+        //e adiciona o valor do input para o elemento li
+        node.appendChild(texto);
+        //depois adiciona o valor do li para a lista, e graças a Deus, ou a mim, fiquei umas 3 horas tentando entender como fazia isso
         lista.appendChild(node);
-        return console.log(lista);
       }
     </script>
   </body>
