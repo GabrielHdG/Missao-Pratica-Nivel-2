@@ -14,7 +14,7 @@
       <input type="number" id="valor" />
       <button onclick="add()">Adicionar</button>
 
-      <select id="sort" onchange="ordenar(this.value)">
+      <select name="sort" id="sort">
         <option value="Swap">Swap</option>
         <option value="Suffle">Suffle</option>
         <option value="Selection">Selection Sort</option>
@@ -26,49 +26,6 @@
 
       <ul id="valores"></ul>
     </div>
-
-    <script>
-      function ordenar(elemento) {
-        let lista = document.getElementById("valores");
-        let selecao = document.getElementById("sort");
-        let vetor = [];
-        console.log(vetor);
-
-        for (const children of lista.children) {
-          console.log(children);
-          Math.round(children);
-          vetor.push(children);
-        }
-
-        if (elemento === "Swap") {
-          console.log("Swap");
-        } else if (elemento === "Suffle") {
-          console.log("b");
-        } else if (elemento === "Selection") {
-          console.log("c");
-        } else if (elemento === "Quick") {
-          console.log("d");
-        } else {
-          console.log("Bubble");
-        }
-      }
-
-      function misturar() {}
-
-      function add() {
-        //pega o valor do input
-        let id = parseInt(document.getElementById("valor").value);
-        //pega a lista que será adicionada
-        let lista = document.getElementById("valores");
-        //cria um elemento li para o valor do input
-        let node = document.createElement("li");
-        //cria um node com o valor do input
-        let texto = document.createTextNode(id);
-        //e adiciona o valor do input para o elemento li
-        node.appendChild(texto);
-        //depois adiciona o valor do li para a lista, e graças a Deus, ou a mim, fiquei umas 3 horas tentando entender como fazia isso
-        lista.appendChild(node);
-      }
-    </script>
+    <script src="ordenando1.js"></script>
   </body>
 </html>
