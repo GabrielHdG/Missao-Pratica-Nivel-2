@@ -4,10 +4,10 @@ function add() {
   let inputValue = parseFloat(document.getElementById("inputValue").value);
   valuesArray.push(inputValue);
   document.getElementById("inputValue").value = "";
-  updateList();
+  atualizarLista();
 }
 
-function updateList() {
+function atualizarLista() {
   let listElement = document.getElementById("valores");
   listElement.innerHTML = "";
   for (let i = 0; i < valuesArray.length; i++) {
@@ -29,7 +29,7 @@ const misturarOVetor = (arr) => {
 
 function misturar() {
   valuesArray = misturarOVetor(valuesArray);
-  updateList();
+  atualizarLista();
 }
 
 const bubbleSort = (vetor) => {
@@ -111,5 +111,5 @@ function ordenar() {
   {
     valuesArray = quickSortHelper(valuesArray, 0, valuesArray.length - 1);
   }
-  updateList();
+  atualizarLista();
 }
